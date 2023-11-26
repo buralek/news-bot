@@ -13,16 +13,23 @@
     <description>api</description>
 
     <dependencies>
+        <!-- Internal -->
+
+        <!-- Core -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>
         </dependency>
 
+        <!-- Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
+
+        <!-- Telegram -->
+
     </dependencies>
 
     <build>
