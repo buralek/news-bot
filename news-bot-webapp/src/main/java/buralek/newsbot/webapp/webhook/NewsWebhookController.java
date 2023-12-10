@@ -17,7 +17,7 @@ public class NewsWebhookController {
         this.newsWebhookBot = newsWebhookBot;
     }
 
-    @PostMapping("/update")
+    @PostMapping
     public BotApiMethod<?> onUpdateReceived(@RequestBody Update update) {
         return newsWebhookBot.onWebhookUpdateReceived(update);
     }

@@ -7,6 +7,6 @@ server:
 
 telegram:
   api-url: https://api.telegram.org
-  webhook-path: test
+  webhook-path: ${NEWS_TBOT_WEBHOOK}
   bot-name: ${NEWS_TBOT_NAME}
   bot-token: ${NEWS_TBOT_TOKEN}
