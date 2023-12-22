@@ -7,22 +7,27 @@
         <artifactId>news-bot</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>news-bot-telegram</artifactId>
+    <artifactId>news-bot-webapp</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>news-bot-telegram</name>
-    <description>telegram</description>
+    <name>news-bot-webapp</name>
+    <description>news-bot-webapp</description>
 
     <dependencies>
         <!-- Internal -->
+        <dependency>
+            <groupId>buralek.news-bot</groupId>
+            <artifactId>news-bot-telegram</artifactId>
+        </dependency>
 
         <!-- Core -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter</artifactId>
+            <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
-            <groupId>org.projectlombok</groupId>
-            <artifactId>lombok</artifactId>
+            <groupId>org.springdoc</groupId>
+            <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
+            <version>${springdoc-openapi-starter-webmvc-ui.version}</version>
         </dependency>
 
         <!-- Test -->
@@ -37,6 +42,7 @@
             <groupId>org.telegram</groupId>
             <artifactId>telegrambots</artifactId>
         </dependency>
+
     </dependencies>
 
     <build>
