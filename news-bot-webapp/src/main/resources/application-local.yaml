@@ -10,3 +10,15 @@ telegram:
   webhook-path: ${NEWS_TBOT_WEBHOOK}
   bot-name: ${NEWS_TBOT_NAME}
   bot-token: ${NEWS_TBOT_TOKEN}
+
+spring:
+  datasource:
+    username: ${NEWS_TBOT_DB_USER}
+    password: ${NEWS_TBOT_DB_PASSWORD}
+    url: ${NEWS_TBOT_DB_URL}
+  flyway:
+    enabled: true
+    user: ${NEWS_TBOT_DB_USER}
+    password: ${NEWS_TBOT_DB_PASSWORD}
+    url: ${NEWS_TBOT_DB_URL}
+    locations: classpath:db.migration
