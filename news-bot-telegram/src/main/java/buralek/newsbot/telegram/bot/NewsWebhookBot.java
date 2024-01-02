@@ -21,7 +21,7 @@ public class NewsWebhookBot extends TelegramWebhookBot {
         if (update.hasMessage() && update.getMessage().hasText()) {
             SendMessage sendMessage = new SendMessage();
             sendMessage.setChatId(update.getMessage().getChatId().toString());
-            sendMessage.setText("Well, all information looks like noise until you break the code.");
+            sendMessage.setText("Well, I don't know what to do on this command.");
             return sendMessage;
         }
         return null;
