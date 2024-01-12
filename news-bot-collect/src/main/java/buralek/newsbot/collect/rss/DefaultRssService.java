@@ -7,7 +7,6 @@ import com.rometools.rome.io.SyndFeedInput;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 import org.xml.sax.InputSource;
 
@@ -16,7 +15,6 @@ import java.io.InputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-@Service
 public class DefaultRssService implements RssService {
     private final Logger LOG = LoggerFactory.getLogger(DefaultRssService.class);
     private final SyndFeedInput input;
