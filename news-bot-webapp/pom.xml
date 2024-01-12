@@ -22,6 +22,10 @@
             <groupId>buralek.news-bot</groupId>
             <artifactId>news-bot-data</artifactId>
         </dependency>
+        <dependency>
+            <groupId>buralek.news-bot</groupId>
+            <artifactId>news-bot-logic</artifactId>
+        </dependency>
 
         <!-- Core -->
         <dependency>

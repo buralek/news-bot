@@ -1,4 +1,4 @@
-package buralek.newsbot.webapp.webhook;
+package buralek.newsbot.webapp.controller;
 
 import buralek.newsbot.telegram.bot.NewsWebhookBot;
 import org.springframework.web.bind.annotation.PostMapping;
