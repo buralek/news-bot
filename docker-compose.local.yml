@@ -18,7 +18,7 @@ services:
       - "2110:2110"
     depends_on:
       - postgresql
-#      - ngrok
+      - ngrok
   postgresql:
     image: 'postgres:15.5-bullseye'
     container_name: postgresql
@@ -28,11 +28,11 @@ services:
       - POSTGRES_DB=tbot
     ports:
       - "5432:5432"
-#  ngrok:
-#    image: ngrok/ngrok:latest
-#    environment:
-#      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
-#      NGROK_URL: ${NGROK_URL}
-#    command: 'http --domain=${NGROK_URL} host.docker.internal:2010'
-#    ports:
-#      - "4040:4040"
+  ngrok:
+    image: ngrok/ngrok:latest
+    environment:
+      NGROK_AUTHTOKEN: ${NGROK_AUTHTOKEN}
+      NGROK_URL: ${NGROK_URL}
+    command: 'http --domain=${NGROK_URL} host.docker.internal:2010'
+    ports:
+      - "4040:4040"

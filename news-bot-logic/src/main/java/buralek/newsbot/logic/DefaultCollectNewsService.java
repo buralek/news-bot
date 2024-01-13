@@ -11,6 +11,7 @@ import com.rometools.rome.feed.synd.SyndFeed;
 import jakarta.transaction.Transactional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.annotation.Scheduled;
 
 import java.util.List;
 import java.util.Map;
@@ -32,6 +33,7 @@ public class DefaultCollectNewsService implements CollectNewsService {
     }
 
     @Transactional
+    @Scheduled(cron = "${service-settings.scheduler.cron}")
     public void receiveAllLastNews() {
         LOG.info("Start to receive news from all subscriptions.");
         List<Subscription> subscriptions = subscriptionRepository.findAll();
