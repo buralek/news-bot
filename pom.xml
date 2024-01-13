@@ -34,6 +34,7 @@
         <lombok.version>1.18.30</lombok.version>
         <postgresql-driver.version>42.7.1</postgresql-driver.version>
         <flyway.version>9.22.3</flyway.version>
+        <rometools.version>2.1.0</rometools.version>
         <!-- Telegram -->
         <telegrambots.version>6.8.0</telegrambots.version>
     </properties>
@@ -74,8 +75,8 @@
                 <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.springframework.data</groupId>
-                <artifactId>spring-data-jpa</artifactId>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
                 <version>${spring-boot.version}</version>
             </dependency>
             <dependency>
@@ -105,6 +106,11 @@
                 <groupId>org.flywaydb</groupId>
                 <artifactId>flyway-core</artifactId>
                 <version>${flyway.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.rometools</groupId>
+                <artifactId>rome</artifactId>
+                <version>${rometools.version}</version>
             </dependency>
 
             <!-- Telegram -->
