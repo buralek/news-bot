@@ -24,9 +24,18 @@ public class Subscription {
     @Column(nullable = false)
     private String name;
 
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String url;
 
     @OneToMany(mappedBy = "subscription", cascade = CascadeType.ALL)
     private Set<Page> pages;
+
+    @Override
+    public Subscription clone() {
+        try {
+            return (Subscription) super.clone();
+        } catch (CloneNotSupportedException e) {
+            throw new AssertionError();
+        }
+    }
 }

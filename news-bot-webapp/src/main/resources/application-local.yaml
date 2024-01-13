@@ -3,7 +3,6 @@ service-settings:
   version: "0.0.1"
   scheduler:
     cron: "0 0 8 * * *"
-#    cron: "0 * * * * *"
 server:
   port: 2010
 

@@ -1,7 +1,7 @@
 CREATE TABLE IF NOT EXISTS subscription
 (
     id   bigserial NOT NULL PRIMARY KEY,
-    name text      NOT NULL,
+    name text      NOT NULL UNIQUE,
     url  text      NOT NULL
 );
 
@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS page
             DEFERRABLE,
     name            text      NOT NULL,
     description     text,
-    url             text      NOT NULL,
+    url             text      NOT NULL UNIQUE,
     published_date  timestamptz,
     author          text
 );

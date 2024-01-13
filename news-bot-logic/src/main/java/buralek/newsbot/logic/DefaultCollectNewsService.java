@@ -81,9 +81,9 @@ public class DefaultCollectNewsService implements CollectNewsService {
     private Page getUpdatedPage(Page newPage, Page existingPage) {
         Page updatedPage = newPage.clone();
         if (existingPage != null) {
-            LOG.info("The page with id '{}' and name '{}' has already existed and be updated",
-                    existingPage.getId(),
-                    existingPage.getName());
+            LOG.info("The page with name '{}' and url '{}' has already existed and be updated",
+                    existingPage.getName(),
+                    existingPage.getUrl());
             updatedPage.setId(existingPage.getId());
         }
         return updatedPage;
