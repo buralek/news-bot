@@ -1,6 +1,6 @@
 package buralek.newsbot.telegram.config;
 
-import buralek.newsbot.telegram.bot.NewsWebhookBot;
+import buralek.newsbot.telegram.bot.NewsTelegramWebhookBot;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
@@ -9,7 +9,7 @@ import org.telegram.telegrambots.meta.api.methods.updates.SetWebhook;
 @Configuration
 @Import({
         TelegramPropertiesConfig.class,
-        NewsWebhookBot.class
+        NewsTelegramWebhookBot.class
 })
 public class TelegramConfig {
     private final TelegramPropertiesConfig telegramPropertiesConfig;

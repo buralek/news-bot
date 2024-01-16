@@ -2,15 +2,22 @@ service-settings:
   name: "News Telegram Bot"
   version: "0.0.1"
   scheduler:
-    cron: "0 0 8 * * *"
+    # every 2 hours
+    cron: "0 0 */2 * * *"
 server:
   port: 2010
+  servlet:
+    context-path: /news-bot
 
 telegram:
   api-url: https://api.telegram.org
   webhook-path: ${NEWS_TBOT_WEBHOOK}
   bot-name: ${NEWS_TBOT_NAME}
   bot-token: ${NEWS_TBOT_TOKEN}
+
+  # can be configured in the future
+  bot-user: ${NEWS_TBOT_USER}
+  bot-chat: ${NEWS_TBOT_CHAT}
 
 spring:
   datasource:

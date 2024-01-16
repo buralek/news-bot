@@ -13,6 +13,10 @@ public class TelegramPropertiesConfig {
     private String botName;
     @Value("${telegram.bot-token}")
     private String botToken;
+    @Value("${telegram.bot-user}")
+    private Long botUser;
+    @Value("${telegram.bot-chat}")
+    private Long botChat;
 
     public String getApiUrl() {
         return apiUrl;
@@ -28,5 +32,13 @@ public class TelegramPropertiesConfig {
 
     public String getBotToken() {
         return botToken;
+    }
+
+    public Long getBotUser() {
+        return botUser;
+    }
+
+    public Long getBotChat() {
+        return botChat;
     }
 }
