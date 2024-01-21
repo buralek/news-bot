@@ -35,11 +35,11 @@ public class DefaultCollectNewsService implements CollectNewsService {
     @Transactional
     @Scheduled(cron = "${service-settings.scheduler.cron}")
     public void collectLastNews() {
-        LOG.info("Start to receive news from all subscriptions.");
+        LOG.info("Start collecting news from all subscriptions");
         List<Subscription> subscriptions = subscriptionRepository.findAll();
         for (Subscription subscription : subscriptions) {
             try {
-                LOG.info("Receive news from {}", subscription.getName());
+                LOG.info("Collect news from {}", subscription.getName());
 
                 SyndFeed syndFeed = rssService.getLastNews(subscription.getUrl());
                 Map<String, Page> newPages = syndFeed.getEntries()
@@ -57,9 +57,9 @@ public class DefaultCollectNewsService implements CollectNewsService {
                         .collect(Collectors.toSet());
 
                 pageRepository.saveAll(persistedPages);
-                LOG.info("All news from {} subscription received and persisted.", subscription.getUrl());
+                LOG.info("All news from {} subscription collected and persisted", subscription.getUrl());
             } catch (CollectException e) {
-                LOG.error("Can't receive last news from {}. The reason is {}",
+                LOG.error("Can't collect last news from {}. The reason is {}",
                         subscription.getName(),
                         e.getMessage());
             }
@@ -69,7 +69,9 @@ public class DefaultCollectNewsService implements CollectNewsService {
     private Page toPage(SyndEntry syndEntry, Subscription subscription) {
         Page page = new Page();
         page.setName(syndEntry.getTitle());
-        page.setDescription(syndEntry.getDescription().getValue());
+        if (syndEntry.getDescription() != null) {
+            page.setDescription(syndEntry.getDescription().getValue());
+        }
         page.setUrl(syndEntry.getLink());
         page.setAuthor(syndEntry.getAuthor());
         page.setPublishedDate(syndEntry.getPublishedDate());

@@ -3,7 +3,7 @@ package buralek.newsbot.logic.config;
 import buralek.newsbot.collect.config.CollectConfig;
 import buralek.newsbot.data.config.DataConfig;
 import buralek.newsbot.logic.collect.DefaultCollectNewsService;
-import buralek.newsbot.logic.command.DefaultCommandHandler;
+import buralek.newsbot.logic.action.DefaultActionService;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -13,7 +13,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
         CollectConfig.class,
         DataConfig.class,
         DefaultCollectNewsService.class,
-        DefaultCommandHandler.class
+        DefaultActionService.class
 })
 @EnableScheduling
 public class LogicConfig {

@@ -6,4 +6,5 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.math.BigInteger;
 
 public interface SubscriptionRepository extends JpaRepository<Subscription, BigInteger> {
+    void deleteSubscriptionByName(String name);
 }
