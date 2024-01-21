@@ -1,6 +1,6 @@
 package buralek.newsbot.webapp.controller;
 
-import buralek.newsbot.logic.CollectNewsService;
+import buralek.newsbot.logic.collect.CollectNewsService;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -16,6 +16,6 @@ public class CollectNewsController {
 
     @PostMapping
     public void collectNews() {
-        collectNewsService.receiveAllLastNews();
+        collectNewsService.collectLastNews();
     }
 }

@@ -11,6 +11,8 @@ services:
       - NEWS_TBOT_DB_USER=${NEWS_TBOT_DB_USER}
       - NEWS_TBOT_DB_PASSWORD=${NEWS_TBOT_DB_PASSWORD}
       - NEWS_TBOT_DB_URL=${NEWS_TBOT_DB_URL}
+      - NEWS_TBOT_USER=${NEWS_TBOT_USER}
+      - NEWS_TBOT_CHAT=${NEWS_TBOT_CHAT}
     build: .
     restart: always
     ports:

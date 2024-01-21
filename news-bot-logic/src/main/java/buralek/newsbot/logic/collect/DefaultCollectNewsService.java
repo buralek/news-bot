@@ -1,4 +1,4 @@
-package buralek.newsbot.logic;
+package buralek.newsbot.logic.collect;
 
 import buralek.newsbot.collect.exception.CollectException;
 import buralek.newsbot.collect.rss.RssService;
@@ -34,7 +34,7 @@ public class DefaultCollectNewsService implements CollectNewsService {
 
     @Transactional
     @Scheduled(cron = "${service-settings.scheduler.cron}")
-    public void receiveAllLastNews() {
+    public void collectLastNews() {
         LOG.info("Start to receive news from all subscriptions.");
         List<Subscription> subscriptions = subscriptionRepository.findAll();
         for (Subscription subscription : subscriptions) {
@@ -70,7 +70,7 @@ public class DefaultCollectNewsService implements CollectNewsService {
         Page page = new Page();
         page.setName(syndEntry.getTitle());
         page.setDescription(syndEntry.getDescription().getValue());
-        page.setUrl(syndEntry.getUri());
+        page.setUrl(syndEntry.getLink());
         page.setAuthor(syndEntry.getAuthor());
         page.setPublishedDate(syndEntry.getPublishedDate());
         page.setSubscription(subscription);
