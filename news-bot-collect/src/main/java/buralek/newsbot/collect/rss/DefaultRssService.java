@@ -36,7 +36,7 @@ public class DefaultRssService implements RssService {
                         "failed with status code: " + responseEntity.getStatusCode());
             }
             if (responseEntity.getBody() == null) {
-                throw new CollectException("Response from " + url + " is empty. Can't create feed to parse it.");
+                throw new CollectException("Response from " + url + " is empty. Can't create feed to parse it");
             }
 
             InputStream responseStream = new ByteArrayInputStream(responseEntity.getBody());
