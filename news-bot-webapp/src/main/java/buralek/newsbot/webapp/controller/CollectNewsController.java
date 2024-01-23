@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+//TODO this is a test endpoint and must be removed or secured before real deploy
 @RestController
 @RequestMapping("collect")
 public class CollectNewsController {
