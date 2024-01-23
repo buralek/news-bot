@@ -1,6 +1,5 @@
 package buralek.newsbot.telegram.bot;
 
-import buralek.newsbot.data.entity.Subscription;
 import buralek.newsbot.logic.action.ActionService;
 import buralek.newsbot.telegram.config.TelegramPropertiesConfig;
 import org.slf4j.Logger;
@@ -13,7 +12,6 @@ import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
 import java.time.temporal.ChronoUnit;
-import java.util.List;
 
 import static buralek.newsbot.telegram.bot.CommandEnum.ADD_SUBSCRIPTION;
 import static buralek.newsbot.telegram.bot.CommandEnum.DELETE_SUBSCRIPTION;
@@ -43,20 +41,14 @@ public class NewsTelegramWebhookBot extends TelegramWebhookBot {
 
             CommandEnum command = CommandEnum.valueOfCommandText(
                     update.getMessage().getEntities().getFirst().getText().replace(telegramPropertiesConfig.getBotName(), ""));
-            switch (command) {
-                case RECEIVE_24_HOURS_NEWS:
-                    return onReceive24hNews(update);
-                case RECEIVE_7_DAYS_NEWS:
-                    return onReceive7daysNews(update);
-                case ADD_SUBSCRIPTION:
-                    return onAddSubscription(update);
-                case DELETE_SUBSCRIPTION:
-                    return onDeleteSubscription(update);
-                case GET_ALL_SUBSCRIPTIONS:
-                    return onGetAllSubscriptions(update);
-                default:
-                    return getSimpleAnswer(update, "Well, I don't know what to do on this command");
-            }
+            return switch (command) {
+                case RECEIVE_24_HOURS_NEWS -> onReceive24hNews(update);
+                case RECEIVE_7_DAYS_NEWS -> onReceive7daysNews(update);
+                case ADD_SUBSCRIPTION -> onAddSubscription(update);
+                case DELETE_SUBSCRIPTION -> onDeleteSubscription(update);
+                case GET_ALL_SUBSCRIPTIONS -> onGetAllSubscriptions(update);
+                default -> getSimpleAnswer(update, "Well, I don't know what to do on this command");
+            };
         }
         return null;
     }

@@ -30,7 +30,7 @@ public class TelegramResponseFormatter {
         return String.format("""
                         <b>Subscription:</b> %s
                         <b>Url:</b> %s
-                        
+                                                
                         """,
                 subscription.getName(),
                 subscription.getUrl());
